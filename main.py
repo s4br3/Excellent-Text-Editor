@@ -6,6 +6,14 @@ import file as f
 def dummy():
     return
 
+def saveToFile(text):
+    print(text)
+
+
+
+
+    #f.writeFile("filename",text)
+
 root = Tk()
 root.title('New File')
 root.geometry('960x600')
@@ -28,7 +36,7 @@ menuBar.add_cascade(
 
 fileMenu.add_command(
     label = 'Save',
-    command = dummy
+    command = lambda: saveToFile(textbox.get("1.0", "end-1c"))
 )
 
 textbox = Text(root,width=16,height=5)
