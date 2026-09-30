@@ -4,7 +4,7 @@ fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
 badLuck = 0.5
 def readFile(f):
     filename = f.name
-    if random.random() < 0.1:
+    if random.random() < 0.25:
         os.remove(filename)
         return ("","")
     output = ""
