@@ -1,6 +1,7 @@
 import random
 import os
 fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
+fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
 def readFile(filename, erase):
     if not erase:
         return open(filename).read()
@@ -19,6 +20,7 @@ def writeFile(filename, content, erase):
             f.write("")
         else:
             f.write(content)
+    folder = os.path.dirname(filename)
     folder = os.path.dirname(filename)
     with open(filename) as f:
         if f.read() == "":
