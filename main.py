@@ -5,11 +5,17 @@ import file as f
 
 def readFile():
     file = filedialog.askopenfile(parent=root,title='Open File')
+    if not file: return
 
-    text,name = f.readFile(file)
+    text,nName = f.readFile(file)
+
+    if not text:
+        textbox.delete('1.0','end+1c')
 
     textbox.replace('1.0','end+1c',text)
-    root.title(name)
+    root.title(nName)
+    global name
+    name = nName
 
 def dummy():
     pass
@@ -19,8 +25,17 @@ def saveToFile(text):
     if file:
         f.writeFile(file,text)
 
+def renderTitle():
+    root.title(f'{name}{" *" if delta else ""}')
+    root.after(1000,renderTitle)
+
+    #f.writeFile("filename",text)
+
+delta = False
+name = 'New File'
+
 root = Tk()
-root.title('New File')
+root.title(name)
 root.geometry('960x600')
 
 menuBar = Menu(root)
@@ -48,4 +63,5 @@ textbox = Text(root,width=16,height=5)
 textbox.pack(side=LEFT,fill=BOTH,expand=YES)
 textbox.bind('<Key>',inp.read_input)
 
+renderTitle()
 root.mainloop()
