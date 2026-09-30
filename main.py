@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import input as inp
+import file as f
 
 def dummy():
     return
@@ -22,6 +23,11 @@ menuBar.add_cascade(
     label='File',
     menu=fileMenu,
     underline=0
+)
+
+menuBar.add_command(
+    label = 'Save',
+    command = dummy
 )
 
 textbox = Text(root,width=16,height=5)
