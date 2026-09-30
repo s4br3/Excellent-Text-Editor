@@ -14,8 +14,9 @@ def readFile():
 
     textbox.replace('1.0','end+1c',text)
     root.title(nName)
-    global name
+    global name,delta
     name = nName
+    delta = False
 
 def dummy():
     pass
@@ -23,7 +24,11 @@ def dummy():
 def saveToFile(text):
     file = filedialog.asksaveasfile(defaultextension="*.txt",filetypes=[("TextFiles","*.txt"),("All Files","*.*")])
     if file:
+        global name,delta
+        name = file.name
+        root.title(name)
         f.writeFile(file,text)
+        delta = False
 
 def renderTitle():
     root.title(f'{name}{" *" if delta else ""}')
@@ -59,7 +64,7 @@ fileMenu.add_command(
     command = lambda: saveToFile(textbox.get("1.0", "end-1c"))
 )
 
-def doDelta():
+def doDelta(event):
     global delta
     delta = True
 

@@ -6,7 +6,7 @@ def readFile(f):
     filename = f.name
     if random.random() < 0.1:
         os.remove(filename)
-        return ""
+        return ("","")
     output = ""
     block = f.read()
     probOfErase = 0
