@@ -31,7 +31,7 @@ fileMenu.add_command(
     command = dummy
 )
 
-menuBar.add_command(
+menuBar.add_cascade(
     label = 'File',
     menu=fileMenu
 )
