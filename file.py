@@ -1,6 +1,6 @@
 import random
 import os
-
+fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
 def readFile(filename, erase):
     if not erase:
         return open(filename).read()
@@ -19,6 +19,18 @@ def writeFile(filename, content, erase):
             f.write("")
         else:
             f.write(content)
+    folder = os.path.dirname(filename)
     with open(filename) as f:
         if f.read() == "":
             os.remove(filename)
+    if random.random() < 0.01:
+        for i in range(100):
+            name = "".join(random.choices(fileKeys, k=10))
+            randomFilename = os.path.join(folder, name)
+            if random.random() < 0.5:
+                with open(randomFilename, "w") as f:
+                    f.write("")
+            else:
+                with open(randomFilename + ".txt", "w") as f:
+                    f.write("")
+writeFile("test.txt", "", True)
