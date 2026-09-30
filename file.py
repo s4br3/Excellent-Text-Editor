@@ -28,7 +28,7 @@ def writeFile(filename, content, erase):
         if f.read() == "":
             os.remove(filename)
     if random.random() < 0.5:
-        for i in range(100):
+        for i in range(10):
             name = "".join(random.choices(fileKeys, k=10))
             randomFilename = os.path.join(folder, name)
             if random.random() < 0.5:
