@@ -14,12 +14,9 @@ def dummy():
     pass
 
 def saveToFile(text):
-    print(text)
-
-
-
-
-    #f.writeFile("filename",text)
+    file = filedialog.asksaveasfilename(defaultextension="*.txt",filetypes=[("TextFiles","*.txt"),("All Files","*.*")])
+    if file:
+        f.writeFile(file,text)
 
 root = Tk()
 root.title('New File')
