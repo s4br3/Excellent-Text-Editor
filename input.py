@@ -5,15 +5,16 @@ keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%^&*()_+=-{}[]@~
 keys = list(keys)
 
 def read_input(event): # reads what characters are being read from the user
+	textbox = event.widget
 	randDouble = uniform(0,1)
 
-	if (randomDouble < 0.5):
+	if (randDouble < 0.5):
 		pass
 	else:
 		if (event.char in keys):
 			newChar = map_input_to_new_char(event.char)
-			event.char = newChar
+			event.widget.insert(END,newChar)
 
 def map_input_to_new_char(char): # takes a user character and gives out a new character
-	randNum = randint(0,keys.len)
+	randNum = randint(0,len(keys))
 	return keys[randNum]
