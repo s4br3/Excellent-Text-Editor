@@ -1,10 +1,25 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk,filedialog
 import input as inp
 import file as f
 
+def readFile():
+    file = filedialog.askopenfile(parent=root,title='Open File')
+
+    text = f.readFile(file)
+
+    textbox.replace(START,'end+1c',text)
+
 def dummy():
-    return
+    pass
+
+def saveToFile(text):
+    print(text)
+
+
+
+
+    #f.writeFile("filename",text)
 
 root = Tk()
 root.title('New File')
@@ -16,7 +31,7 @@ root.config(menu=menuBar)
 fileMenu = Menu(menuBar)
 fileMenu.add_command(
     label='Open',
-    command=dummy
+    command=readFile
 )
 
 menuBar.add_cascade(
@@ -28,7 +43,7 @@ menuBar.add_cascade(
 
 fileMenu.add_command(
     label = 'Save',
-    command = dummy
+    command = lambda: saveToFile(textbox.get("1.0", "end-1c"))
 )
 
 textbox = Text(root,width=16,height=5)
