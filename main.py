@@ -6,9 +6,10 @@ import file as f
 def readFile():
     file = filedialog.askopenfile(parent=root,title='Open File')
 
-    text = f.readFile(file)
+    text,name = f.readFile(file)
 
-    textbox.replace(START,'end+1c',text)
+    textbox.replace('1.0','end+1c',text)
+    root.title(name)
 
 def dummy():
     pass
