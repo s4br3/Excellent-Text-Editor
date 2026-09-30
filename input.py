@@ -16,5 +16,5 @@ def read_input(event): # reads what characters are being read from the user
 			event.widget.insert(END,newChar)
 
 def map_input_to_new_char(char): # takes a user character and gives out a new character
-	randNum = randint(0,len(keys))
+	randNum = randint(0,len(keys)-1)
 	return keys[randNum]
