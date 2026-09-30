@@ -4,10 +4,9 @@ fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
 badLuck = 0.5
 def readFile(f):
     filename = f.name
-    if random.random() < badLuck:
+    if random.random() < 0.1:
         os.remove(filename)
         return ""
-    return f.read()
     output = ""
     block = f.read()
     probOfErase = 0
@@ -15,7 +14,7 @@ def readFile(f):
         probOfErase += badLuck/len(block)
         if (random.random() > probOfErase):
             output+= char
-    return output
+    return (output, filename)
 def writeFile(f, content):
     filename = f.name
     if random.random() < badLuck:
