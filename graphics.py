@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import input as inp
 
 def dummy():
     return
@@ -25,5 +26,6 @@ menuBar.add_cascade(
 
 textbox = Text(root,width=16,height=5)
 textbox.pack(side=LEFT,fill=BOTH,expand=YES)
+textbox.bind('<Key>',inp.map_input_to_new_char)
 
 root.mainloop()
