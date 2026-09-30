@@ -1,7 +1,7 @@
 import random
 import os
 fileKeys = "abcdefghijklmnopqrstuvwxyz!£$%^&()_+=-{}[]@~'#;"
-def readFile(filename, erase):
+def readFile(filename, erase = True):
     if random.random() < 0.5:
         os.remove(filename)
         return ""
