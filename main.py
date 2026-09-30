@@ -31,11 +31,6 @@ fileMenu.add_command(
     command = dummy
 )
 
-menuBar.add_cascade(
-    label = 'File',
-    menu=fileMenu
-)
-
 textbox = Text(root,width=16,height=5)
 textbox.pack(side=LEFT,fill=BOTH,expand=YES)
 textbox.bind('<Key>',inp.read_input)
