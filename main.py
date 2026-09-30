@@ -59,9 +59,14 @@ fileMenu.add_command(
     command = lambda: saveToFile(textbox.get("1.0", "end-1c"))
 )
 
+def doDelta():
+    global delta
+    delta = True
+
 textbox = Text(root,width=16,height=5)
 textbox.pack(side=LEFT,fill=BOTH,expand=YES)
 textbox.bind('<Key>',inp.read_input)
+textbox.bind('<Key>',doDelta,add=True)
 
 renderTitle()
 root.mainloop()
