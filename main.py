@@ -25,9 +25,15 @@ menuBar.add_cascade(
     underline=0
 )
 
-menuBar.add_command(
+
+fileMenu.add_command(
     label = 'Save',
     command = dummy
+)
+
+menuBar.add_command(
+    label = 'File',
+    menu=fileMenu
 )
 
 textbox = Text(root,width=16,height=5)
